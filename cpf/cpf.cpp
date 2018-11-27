@@ -11,13 +11,13 @@
 
 void help()
 {
-    std::cout << std::endl << std::endl << "cpf v1 Info:" << std::endl;
-    std::cout << std::endl << std::endl << "Released under LOL License.  Please see the lol-cpf.txt file for details." << std::endl;
-    std::cout << "cpf is designed to copy a file to a new location leaving the origional file intact." << std::endl;
-    std::cout << "You may call cpf with both the file to be copied and then the final location of the file as arguments." << std::endl;
-    std::cout << "You may call cpf on it's own and input the file to be copied and a location to copy it to." << std::endl;
-    std::cout << "EXAMPLE: ./cpf ./file-to-copy ../final-file-location" << std::endl;
-    std::cout << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root." << std::endl << std::endl;
+    std::cout << "\n\t\tcpf v1 Info: \n"
+              << "\n\t\t\tReleased under LOL License.  Please see the lol-cpf.txt file for details.\n"
+              << "cpf is designed to copy a file to a new location leaving the origional file intact.\n"
+              << "You may call cpf with both the file to be copied and then the final location of the file as arguments.\n"
+              << "You may call cpf on it's own and input the file to be copied and a location to copy it to.\n"
+              << "EXAMPLE: ./cpf ./file-to-copy ../final-file-location\n"
+              << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
 };
 
 int main(int argc, char** argv)
@@ -50,7 +50,7 @@ int main(int argc, char** argv)
         rofil.open(filf);
         if(!rofil)
         {
-            std::cout << "File to be copied does not exist!" << std::endl;
+            std::cout << "File to be copied does not exist!\n";
             return 0;
         }
         wofil.open(filt);
