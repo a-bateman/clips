@@ -49,7 +49,7 @@ int main(int argc, char** argv)
             strcpy(infil, argv[1]);
             filt = argv[2];
         }
-        strcpy(filf, infil);
+        filf = infil;
         rofil.open(filf);
         if(!rofil)
         {
