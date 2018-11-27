@@ -11,7 +11,7 @@ Files that are in a work in progress state will be under a directory using the f
 
 All programs can be run with the argument "help" or "info" to get more information on using the program.  Man pages will be created for all programs at a later date.
 
-Make files will be created as time goes on.  Currently you are not expected to use these as a full replacement for the GNU Coreutils.
+A make file for the full set of clips utils will be created when all programs are deemed sufficient to replace GNU Coreutils.  Make files for each program will be created as time goes on.  Currently you are not expected to use these as a full replacement for the GNU Coreutils.
 
 If you have any requests for a specific program to be completed but do not see a directory for it please submit it as an issue and I will attempt to work on it ASAP.
 
