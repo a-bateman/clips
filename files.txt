@@ -1,0 +1,6 @@
+The programs currently available are below.
+
+Program name      Program it intends to replace     Directory
+cpf                       cp                        clips/READY-cpf
+pfc                       cat                       clips/READY-pfc
+mvf                       mv                        clips/WIP-mvf
