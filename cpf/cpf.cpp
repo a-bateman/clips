@@ -10,11 +10,12 @@
 #include <string.h>
 #include <commander.hpp>
 
-bool shouldDisplayHelp (const CMD::commander &args) {
+inline bool shouldDisplayHelp (const CMD::commander &args) {
     return(args.isFlagSet("help") || args.isFlagSet("info"));
 
 }
-void helpMessage(const CMD::commander &args)
+
+inline void helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
@@ -26,17 +27,17 @@ void helpMessage(const CMD::commander &args)
                 << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
 };
 
-void inputFileNames (std::string& filf, std::string& filt) {
+inline void inputFileNames (std::string& filf, std::string& filt) {
         std::cout << "What file would you like to copy the contents of? ";
         std::cin >> filf;
         std::cout << "Where would you like the file contents to copied to? ";
         std::cin >> filt;
 }
 
-int copyFile (const std::string& filf, const std::string& filt) {
+inline int copyFile (const std::string& filf, const std::string& filt) {
     std::ifstream rofil;
     std::ofstream wofil;
-    
+
     rofil.open(filf);
     if(!rofil)
     {
