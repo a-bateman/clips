@@ -1,4 +1,4 @@
-Print File Contents
+# Print File Contents
 
 Intended to replace cat.
 

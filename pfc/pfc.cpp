@@ -2,11 +2,12 @@
 //Print File Contents program for CLI.
 //Written by: Andrew B.
 //Originally written: 11-26-18
-//Licensed under the LOLicense.  It is expected that you have read the LOL-pfc.txt file included with this source code before modifying, compiling or distributing it.
+//Licensed under the LOLicense at   It is expected that you have read the LOL-pfc.txt file included with this source code before modifying, compiling or distributing it.
 
 #include <fstream>
 #include <iostream>
 #include <stdio.h>
+#include <string.h>
 
 void help()
 {
