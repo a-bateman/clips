@@ -2,7 +2,7 @@ The source code to all works created using said source code, and any binary deri
 
 This license gives anyone the right to do anything with the source code and software for any purpose, reason and in any manner they see fit.
 
-The only thing that is required by anyone using or possesing any LOL source code or binary file derived from the source code is that this license is included in the same directory, or in a license compilation directory, in its current, origional and unchanged LOLicense.txt format for the end user to see. 
+The only thing that is required by anyone using or possesing any LOL source code or binary file derived from the source code is that this license is included in the same directory, or in a license compilation directory, in its current, origional and unchanged LOL.txt format for the end user to see. 
 
 By obtaining the source code, a binary derived using the source code, or any other software that falls under the LOLicense you accept any and all responsibility for the end results of using the original source code, any derivative works and anything else that may happen just by having the source code or derivative softare on your system.
 
