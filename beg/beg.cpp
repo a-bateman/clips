@@ -7,50 +7,75 @@
 #include <fstream>
 #include <iostream>
 #include <stdio.h>
-#include <string.h>
+#include <string>
+#include <commander.hpp>
+#include <exception>
 
-void help()
+inline bool shouldDisplayHelp (const CMD::commander &args) {
+    return(args.isFlagSet("help") || args.isFlagSet("info"));
+
+}
+
+inline bool helpMessage(const CMD::commander &args)
 {
-    std::cout << std::endl << std::endl << "beg v1 Info:" << std::endl;
-    std::cout << std::endl << std::endl << "Released under LOL License.  Please see the lol.txt file for details." << std::endl;
-    std::cout << "beg is designed to print the first 10 lines of a file to the screen." << std::endl;
-    std::cout << "You may call beg on it's own and input the file to print as an arguement." << std::endl;
-    std::cout << "EXAMPLE: ./beg ./file-to-print" << std::endl;
-    std::cout << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root." << std::endl << std::endl;
+    if (shouldDisplayHelp(args)) {
+        std::cout << "\n\nbeg v1 Info:\n"
+                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "beg is designed to print the first 10 lines of a file to the screen.\n"
+                  << "You may call beg on it's own and input the file to print as an arguement.\n"
+                  << "EXAMPLE: ./beg ./file-to-print\n"
+                  << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n";
+        return true;
+    }
+    return false;
 };
+
+inline void inputFileName (std::string& filf) {
+    std::cout << "What file would you like to print the contents of? ";
+    std::cin >> filf;
+}
+
+inline std::ifstream openFile (const std::string& filf) {
+    std::ifstream rofil;
+    rofil.open(filf);
+    if (!rofil) { 
+        std::cerr << "Cannot open file " << filf;
+        throw;
+    }
+    return rofil;
+}
+
+inline void printLines (std::ifstream rofil, size_t amountOfLines = 10) {
+    std::string line;
+    for(int i = 0; i < amountOfLines; i++)
+    {
+        std::getline(rofil, line);
+        std::cout << line << std::endl;
+    }
+    std::cout << std::endl;
+    rofil.close();
+}
+
+inline int getAmountOfLines (const CMD::commander &args) {
+    std::string argument = args.getFlagValue("-l");
+    if (argument == "")
+        return 10;
+    return std::stoi (argument);
+}
 
 int main(int argc, char** argv)
 {
-    std::ifstream rofil;
-    std::string filf, line;
-    int i = 0;
+    CMD::commander args (argc-1, argv + 1);
+    std::string filf;
 
-    if(argc > 1)
-    {
-        if(strncmp(argv[1], "help", 4) == 0 || strncmp(argv[1], "info", 4) == 0)
-        {
-            help();
-            return 0;
-        }
-    }
-
-        if(argc < 2)
-        {
-            std::cout << "What file would you like to print the contents of? ";
-            std::cin >> filf;
-        }
-        else
-        {
-            filf = argv[1];
-        }
-        rofil.open(filf);
-        std::cout << std::endl << "Printing contents of: " << filf << std::endl << std::endl;
-        for(i = 0; i != 9; i++)
-        {
-            std::getline(rofil, line);
-            std::cout << line << std::endl;
-        }
-        std::cout << std::endl;
-        rofil.close();
+    if(helpMessage(args))
         return 0;
+    
+    if(args.getFlagCount() < 1)
+        inputFileName(filf);
+    else
+        filf = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
+
+    printLines (openFile(filf), getAmountOfLines(args));
+    return 0;
 }
