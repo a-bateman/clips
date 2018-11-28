@@ -17,7 +17,7 @@ All programs can be run with the argument "help" or "info" to get more informati
 ## Installation
 A (recursive) make file for the full set of clips utils will be created when all programs are deemed sufficient to replace GNU Coreutils.  Make files for each program will be created as time goes on.  Currently you are not expected to use these as a full replacement for the GNU Coreutils.
 
-If a make file exists in a programs directory that means that I currently use the program on my system without issue.
+If a make file exists in a programs directory, and is labeled as "READY" under Current State in files.md, that means that I currently use the program on my system without issue.
 ***This does not mean that the program is guaranteed to work without issue.  Use at your own risk.***
 
 If you have any requests for a specific program to be completed but do not see a directory for it please submit it as an issue and I will attempt to work on it ASAP.
