@@ -1,7 +1,8 @@
 # The programs currently available are below.
 
-|Program name|Program it intends to replace|Directory
-|---         |---                          |---
-|cpf         |        cp                   |clips/cpf
-|pfc         |        cat                  |clips/pfc
-|mvf         |        mv                   |clips/mvf
+|Program name|Program it intends to replace|Directory|Function|
+|---         |---                          |---      | ---
+|cpf         |        cp                   |clips/cpf|Copies a file|
+|pfc         |        cat                  |clips/pfc|Prints file contents|
+|mvf         |        mv                   |clips/mvf|Moves a file|
+|sfa         |                             |clips/sfa|Appends files|
