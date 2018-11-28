@@ -8,7 +8,7 @@ You are expected to understand that all files are currently released under the M
 
 ## Workflow
 Information on each program can be found in files.md.
-The information on each file is stored in a chart with the following information:
+The information on each file is stored in a chart, from oldest to newest, with the following information:
 
 Program name, Program it intends to replace, Directory, Function, Current State.
 
