@@ -6,3 +6,4 @@
 |pfc         |        cat                  |clips/pfc|Prints file contents|
 |mvf         |        mv                   |clips/mvf|Moves a file|
 |sfa         |                             |clips/sfa|Appends files|
+|cmp         |        cmp                  |clips/cmp|Compares two files contents|
