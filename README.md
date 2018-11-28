@@ -9,7 +9,8 @@ You are expected to understand that all files are currently released under the M
 ## Workflow
 Information on each program can be found in files.md.
 The information on each file is stored in a chart with the following information:
-|Program name|Program it intends to replace|Directory|Function|Current State|
+
+Program name, Program it intends to replace, Directory, Function, Current State.
 
 All programs can be run with the argument "help" or "info" to get more information on using the program.  Man pages will be created for all programs at a later date.
 
