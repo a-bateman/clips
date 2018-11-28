@@ -1,5 +1,5 @@
 //beg v1
-//Begining program for CLI.
+//Beginning program for CLI.
 //Written by: Andrew B.
 //Originally written: 11-28-18
 //Licensed under the LOLicense. It is expected that you have read the LOL.txt file included with this source code before modifying, compiling or distributing it.
