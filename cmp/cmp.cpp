@@ -20,10 +20,10 @@ inline void helpMessage(const CMD::commander &args)
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
                 << "\nReleased under LOL License.  Please see the lol-cpf.txt file for details.\n\n\n"
-                << "cpf is designed to copy a file to a new location leaving the origional file intact.\n"
-                << "You may call cpf with both the file to be copied and then the final location of the file as arguments.\n"
-                << "You may call cpf on it's own and input the file to be copied and a location to copy it to.\n"
-                << "EXAMPLE: ./cpf ./file-to-copy ../final-file-location\n"
+                << "cmp is designed to compare two files.\n"
+                << "You may call cmp with both the files to be compared as arguments.\n"
+                << "You may call cmp on it's own and input the files to be compared.\n"
+                << "EXAMPLE: ./cmp ./first-file ./second-file\n"
                 << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
 };
 
