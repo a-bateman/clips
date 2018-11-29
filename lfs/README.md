@@ -2,4 +2,4 @@
 
 Intended to replace ls.
 
-Will compile and works as intended.
+Should compile and work as intended using c++17.
