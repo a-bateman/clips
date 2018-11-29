@@ -1,9 +1,9 @@
 compile:
 	-mkdir ../build
-	clang++ -std=c++17 ./cpf.cpp -lCMD -o ../build/cpf
+	clang++ -std=c++17 ./smn.cpp -lCMD -o ../build/smn
 
 install: compile
-	-sudo cp ../build/cpf /usr/local/bin/cpf
+	-sudo cp ../build/smn /usr/local/bin/smn
 
 uninstall:
-	sudo rm /usr/local/bin/cpf
+	sudo rm /usr/local/bin/smn
