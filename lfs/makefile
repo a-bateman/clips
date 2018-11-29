@@ -1,13 +1,13 @@
 compile:
-	clang++ -std=c++17 ./beg.cpp
+	clang++ -std=c++17 ./lfs.cpp
 
 install: compile
-	cp ./a.out ./beg
-	-sudo cp ./beg /usr/local/bin/beg
+	cp ./a.out ./lfs
+	-sudo cp ./lfs /usr/local/bin/lfs
 
 clean:
 	rm ./a.out
-	rm ./beg	
+	rm ./lfs	
 
 uninstall:
-	sudo rm /usr/local/bin/beg
+	sudo rm /usr/local/bin/lfs
