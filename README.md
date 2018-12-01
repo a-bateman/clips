@@ -3,6 +3,9 @@ Command Line Interface Programs
 
 This is a project to replace GNU Coreutils with a set of programs, written entirely in c/c++, and licensed to be more permissive.
 
+Telegram for clips:  https://t.me/joinchat/KG5lhAvsbtt7uQfOGkBr9g
+Telegram for LOLicense: https://t.me/lolicense
+
 ## License
 You are expected to understand that all files are currently released under the MIT license but will be released under the LOLicense (Hereby referred to as LOL) once its details are ironed out.
 
