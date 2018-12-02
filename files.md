@@ -8,3 +8,5 @@
 |sfa         |                             |clips/sfa|Appends files|WIP|
 |cmp         |        comm                 |clips/cmp|Compares two files contents|WIP|
 |beg         |        head                 |clips/beg|Prints the first 10 lines of a file|READY|
+|lfs         |        ls                   |clips/lfs|Prints the files in a given directory|WIP|
+|smn         |        yes                  |clips/smn|Repeats a phrase until killed|WIP|
