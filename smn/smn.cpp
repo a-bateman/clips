@@ -7,14 +7,13 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-#include "/usr/local/include/commander.hpp"
+#include <commander.hpp>
 
 inline bool shouldDisplayHelp (const CMD::commander &args) {
     return(args.isFlagSet("help") || args.isFlagSet("info"));
-
 }
 
-inline void helpMessage(const CMD::commander &args)
+inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
@@ -24,44 +23,32 @@ inline void helpMessage(const CMD::commander &args)
                 << "You may call smn on it's own and input the phrase to be repeated during runtime.\n"
                 << "EXAMPLE: ./smn My phrase\n"
                 << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
+    else
+        return false;
+    return true;
 };
 
-inline void inputString (std::string& phrase, int argc)
+inline std::string inputPhrase ()
 {
-    int i;
-    std::cout << "What phrase would you like repeated? ";
+    std::string phrase;
+    std::cout << ">";
     std::cin >> phrase;
-    while(1)
-    {
-        for(i = 1; i <= argc; i++)
-        {
-            std::cout << phrase << std::endl;
-        }
-    }
+    return phrase;
 }
-
-
 
 int main(int argc, char** argv)
 {
-    CMD::commander args(argc, argv);
+    CMD::commander args(argc-1, argv+1);
     std::string phrase;
-    int i;
 
-    if (args.getFlagCount() == 2)
-        helpMessage(args);
-    else if(args.getFlagCount() == 1)
-        inputString(phrase, argc);
-    else
-    {
-        while(1)
-        {
-            for(i = 1; i <= argc; i++)
-            {
-                std::cout << argv[i];
-            }
-            std::cout << std::endl;
-        }
-    }
+    if (args.getFlagCount() == 1 && helpMessage(args))
+        return 0;
+    else if(args.getFlagCount() == 0)
+        phrase = inputPhrase();
+    else 
+        phrase = args[0];
+
+    while (true)
+        std::cout << phrase << "\n";
     return 0;
 }

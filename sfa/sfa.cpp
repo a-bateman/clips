@@ -13,43 +13,59 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <termios.h>
-#include <./headers/commander.hpp>
+#include <commander.hpp>
 
 
-void help()
+inline bool shouldDisplayHelp (const CMD::commander &args) {
+    return(args.isFlagSet("help") || args.isFlagSet("info"));
+}
+
+inline bool helpMessage(const CMD::commander &args)
 {
-    std::cout << std::endl << std::endl << "sfa v1 Info:" << std::endl;
-    std::cout << std::endl << std::endl << "Planned to be released out of house with the name SFA (Simple File Appender) under LOL License" << std::endl;
-    std::cout << "***Highly Experimental: Not For Production Use!***" << std::endl;
-    std::cout << "sfa is designed to append an unlimited number of files into a single specified file." << std::endl;
-    std::cout << "You may pipe input from either a file or another program.  Expected format is as follows: " << std::endl;
-    std::cout << "For piping data from a file: One file per line with the first in the list being the file appended to." << std::endl;
-    std::cout << "For piping data from a CLI program: One file per stdin with the first in the list being the file appended to." << std::endl;
-    std::cout << "You may call sfa on it's own and input the number of files during runtime." << std::endl;
-    std::cout << "You may also call sfa using the file names as arguments." << std::endl;
-    std::cout << "EXAMPLE: ./sfa ./file-appended-to ./first-file-appended-from ./second-file-appended-from ./etc.." << std::endl << std::endl << std::endl;
-    std::cout << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root." << std::endl << std::endl;
+    if (shouldDisplayHelp(args))
+    std::cout << "\n\nsfa v1 Info:\n"
+              << "\n\nPlanned to be released out of house with the name SFA (Simple File Appender) under LOL License\n"
+              << "***Highly Experimental: Not For Production Use!***\n"
+              << "sfa is designed to append an unlimited number of files into a single specified file.\n"
+              << "You may pipe input from either a file or another program.  Expected format is as follows: \n"
+              << "For piping data from a file: One file per line with the first in the list being the file appended to.\n"
+              << "For piping data from a CLI program: One file per stdin with the first in the list being the file appended to.\n"
+              << "You may call sfa on it's own and input the number of files during runtime.\n"
+              << "You may also call sfa using the file names as arguments.\n"
+              << "EXAMPLE: ./sfa ./file-appended-to ./first-file-appended-from ./second-file-appended-from ./etc..\n\n\n"
+              << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
+    else
+        return false;
+    return true;
 };
+
+struct vout_t {
+    bool verbose = false;
+} vout;
+
+vout_t operator<< (vout_t& os, std::string input) {
+    if (os.verbose)
+        std::cout << input;
+    return os;
+}
 
 int main(int argc, char** argv)
 {
+    CMD::commander args (argc, argv);
+    bool verbose; //TODO make code independent of this variable
     int i, j, k, l = 0, numfiles;
-    bool verbose;
     std::string filf[i], filt, line;
     std::ifstream rofil;
     std::ofstream wofil;
 
     if(argc > 1)
     {
-        if(strncmp(argv[1], "help", 4) == 0 || strncmp(argv[1], "info", 4) == 0)
-        {
-            help();
+        if(helpMessage(args))
             return 0;
-        }
-        if(strncmp(argv[1], "v", 2) || strncmp(argv[1], "V", 2))
+        if(args.isFlagSet("v"))
         {
-            verbose = true;
-            std::cout << "Verbose mode enabled." << std::endl;
+            vout.verbose = verbose = true;
+            vout << "Verbose mode enabled.\n";
         }
     }
 
