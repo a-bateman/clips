@@ -26,7 +26,8 @@ int main(int argc, char** argv)
     std::string filf, filt;
     std::ifstream rofil;
     std::ofstream wofil;
-    char infil[] = "./foo.bar";
+    char infil[15];
+    std::string syscom = "rm ";
 
     if(argc > 1 && argc == 2)
     {
@@ -49,18 +50,15 @@ int main(int argc, char** argv)
             strcpy(infil, argv[1]);
             filt = argv[2];
         }
+
         filf = infil;
         rofil.open(filf);
-        if(!rofil)
-        {
-            std::cout << "File to be moved does not exist!" << std::endl;
-            return 0;
-        }
         wofil.open(filt);
         wofil << rofil.rdbuf();
         rofil.close();
         wofil.close();
-        if(remove(infil) != 0)
+        syscom = syscom + infil;
+        if(system(syscom.c_str()) != 0)
         {
             std::cout << "Could not remove the origional file!" << std::endl;
         }
