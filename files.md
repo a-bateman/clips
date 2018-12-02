@@ -4,7 +4,7 @@
 |---         |---                          |---      | ---|---|
 |cpf         |        cp                   |clips/cpf|Copies a file|READY|
 |pfc         |        cat                  |clips/pfc|Prints file contents|READY|
-|mvf         |        mv                   |clips/mvf|Moves a file|WIP|
+|mvf         |        mv                   |clips/mvf|Moves a file|READY|
 |sfa         |                             |clips/sfa|Appends files|WIP|
 |cmp         |        comm                 |clips/cmp|Compares two files contents|WIP|
 |beg         |        head                 |clips/beg|Prints the first 10 lines of a file|READY|
