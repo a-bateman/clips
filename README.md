@@ -1,11 +1,16 @@
 # clips
 Command Line Interface Programs
 
-This is a project to replace GNU Coreutils with a set of programs, written entirely in c/c++, and licensed to be more permissive.
+This is a project to replace GNU Coreutils with a set of programs, written entirely in c/c++, and licensed to be as permissive as possible.
 
 Telegram for clips:  https://t.me/joinchat/KG5lhAvsbtt7uQfOGkBr9g
 
 Telegram for LOLicense: https://t.me/lolicense
+
+***A current list of the programs, their status and what they are intended to replace can be found in files.txt.***
+
+## Goals
+The end goal of clips is to provide users with a MIT-Like licensed group of CLI utilities in the vein of GNU Coreutils.  It will also expand upon the GNU set of utilities to provide additional functionality.  The source code, written in c/c++, should be easily understood, conform as closely as possible to c++ standards and hold close to the philosphy of Unix.  Each program should do one job and do it well.
 
 ## License
 You are expected to understand that all files are currently released under the MIT license but will be released under the LOLicense (Hereby referred to as LOL) once its details are ironed out.
@@ -25,8 +30,6 @@ If a make file exists in a programs directory, and is labeled as "READY" under C
 ***This does not mean that the program is guaranteed to work without issue.  Use at your own risk.***
 
 If you have any requests for a specific program to be completed but do not see a directory for it please submit it as an issue and I will attempt to work on it ASAP.
-
-A current list of the programs, their status and what they are intended to replace can be found in files.txt.
 
 ***Currently all clips are compiled using clang++.***
 
