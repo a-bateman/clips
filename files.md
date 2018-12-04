@@ -2,12 +2,12 @@
 
 |Program name|Program it intends to replace|Directory|Function|Current State|
 |---         |---                          |---      | ---|---|
-|cpf         |        cp                   |clips/cpf|Copies a file|READY|
-|pfc         |        cat                  |clips/pfc|Prints file contents|READY|
-|mvf         |        mv                   |clips/mvf|Moves a file|READY|
-|sfa         |        New feature          |clips/sfa|Appends files|WIP (See this files readme.mdc for details)|
-|cmp         |        comm                 |clips/cmp|Compares two files contents|WIP (See this files readme.mdc for details)|
-|beg         |        head                 |clips/beg|Prints the first 10 lines of a file|READY|
-|lfs         |        ls                   |clips/lfs|Prints the files in a given directory|WIP (See this files readme.mdc for details)|
-|smn         |        yes                  |clips/smn|Repeats a phrase until killed|WIP (See this files readme.mdc for details)|
-|clc         |        New feature          |clips/clc|Performs simple calculations|WIP (See this files readme.mdc for details)|
+|cpf         |        cp                   |clips/src/cpf|Copies a file|READY|
+|pfc         |        cat                  |clips/src/pfc|Prints file contents|READY|
+|mvf         |        mv                   |clips/src/mvf|Moves a file|READY|
+|sfa         |        New feature          |clips/src/sfa|Appends files|WIP (See this files readme.mdc for details)|
+|cmp         |        comm                 |clips/src/cmp|Compares two files contents|WIP (See this files readme.mdc for details)|
+|beg         |        head                 |clips/src/beg|Prints the first 10 lines of a file|READY|
+|lfs         |        ls                   |clips/src/lfs|Prints the files in a given directory|WIP (See this files readme.mdc for details)|
+|smn         |        yes                  |clips/src/smn|Repeats a phrase until killed|WIP (See this files readme.mdc for details)|
+|clc         |        New feature          |clips/src/clc|Performs simple calculations|WIP (See this files readme.mdc for details)|
