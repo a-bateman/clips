@@ -1,5 +1,5 @@
 # Calculate
 
-IAdditional feature calculations.
+Additional feature: simple calculations.
 
-Work in progress.
+Work in progress.  Does not currently take mathmatical expressions as CLI arguments.  To be added soon.
