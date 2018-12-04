@@ -7,7 +7,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-#include <commander.hpp>
+#include "./commander.hpp"
 
 inline bool shouldDisplayHelp (const CMD::commander &args) {
     return(args.isFlagSet("help") || args.isFlagSet("info"));
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
         return 0;
     else if(args.getFlagCount() == 0)
         phrase = inputPhrase();
-    else 
+    else
         phrase = args[0];
 
     while (true)
