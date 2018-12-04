@@ -11,16 +11,17 @@
 #include <commander.hpp>
 #include <exception>
 
+std::string getDatatypeColorCode(const std::experimental::filesystem::directory_entry &entry);
 
-std::string getDatatypeColorCode (const std::experimental::filesystem::directory_entry& entry);
-
-inline bool shouldDisplayHelp (const CMD::commander &args) {
-    return(args.isFlagSet("help") || args.isFlagSet("info"));
+inline bool shouldDisplayHelp(const CMD::commander &args)
+{
+    return (args.isFlagSet("help") || args.isFlagSet("info"));
 }
 
 inline bool helpMessage(const CMD::commander &args)
 {
-    if (shouldDisplayHelp(args)) {
+    if (shouldDisplayHelp(args))
+    {
         std::cout << "\n\nlfs v1 Info:\n"
                   << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
                   << "lfs is designed to list all of the files in a specific directory.\n"
@@ -32,43 +33,54 @@ inline bool helpMessage(const CMD::commander &args)
     return false;
 };
 
-inline void inputDirectoryName (std::string& dir) {
+inline void inputDirectoryName(std::string &dir)
+{
     std::cout << "Which directory would you like to print the contents of? ";
     std::cin >> dir;
 }
 
-
-std::string extractName (const std::string name) {
-    return name.substr (2, name.size());
+std::string extractName(const std::string name)
+{
+    return name.substr(2, name.size());
 }
 
-inline void printFiles(std::string dir) {
+inline void printFiles(std::string dir)
+{
     namespace FS = std::experimental::filesystem;
-    for(auto filename : FS::directory_iterator(dir))
-        try {
+    for (auto filename : FS::directory_iterator(dir))
+        try
+        {
             std::cout << getDatatypeColorCode(filename) << extractName(filename.path()) << "\e[0m\n";
-        } catch (const std::exception& ex) {
+        }
+        catch (const std::exception &ex)
+        {
             std::cout << ex.what() << "\n";
         }
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
-    CMD::commander args (argc-1, argv + 1);
+    CMD::commander args(argc - 1, argv + 1);
     std::string dir;
 
-    if(helpMessage(args))
+    if (helpMessage(args))
         return 0;
 
-    if(args.getFlagCount() == 0)
+    if (args.getFlagCount() == 0)
         dir = ".";
     else
-        dir = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
+        dir = args.getAllFlagsUnlike(std::regex("-\\w*"))[0];
 
     printFiles(dir);
     return 0;
 }
 
+bool isExecutable(const std::experimental::filesystem::directory_entry &entry)
+{
+    return ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
+           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
+           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec);
+}
 
 // The codes for foreground and background colours are:
 
@@ -94,26 +106,31 @@ int main(int argc, char** argv)
 
 //source: https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
 
-std::string getDatatypeColorCode (const std::experimental::filesystem::directory_entry& entry) {
-    switch (entry.status().type()) {
-        case std::experimental::filesystem::file_type::block:
-            return "\e[30;47m";
-        case std::experimental::filesystem::file_type::character:
-            return "\e[31;47m";
-        case std::experimental::filesystem::file_type::not_found:
-            return "\e[37;41m";
-        case std::experimental::filesystem::file_type::regular:
-            return "\e[0m";
-        case std::experimental::filesystem::file_type::directory:
-            return "\e[4m\e[7m";
-        case std::experimental::filesystem::file_type::symlink:
-            return "\e[4m";
-        case std::experimental::filesystem::file_type::fifo:
-            return "\e[35;40m";
-        case std::experimental::filesystem::file_type::socket:
-            return "\e[32;40m";
-        case std::experimental::filesystem::file_type::unknown:
-            return "\e[34;47m";
+std::string getDatatypeColorCode(const std::experimental::filesystem::directory_entry &entry)
+{
+
+    switch (entry.status().type())
+    {
+    case std::experimental::filesystem::file_type::block:
+        return "\e[30;47m";
+    case std::experimental::filesystem::file_type::character:
+        return "\e[31;47m";
+    case std::experimental::filesystem::file_type::not_found:
+        return "\e[37;41m";
+    case std::experimental::filesystem::file_type::regular:
+        if (isExecutable(entry))
+            return "\e[32;44m";
+        return "\e[0m";
+    case std::experimental::filesystem::file_type::directory:
+        return "\e[4m\e[7m";
+    case std::experimental::filesystem::file_type::symlink:
+        return "\e[4m";
+    case std::experimental::filesystem::file_type::fifo:
+        return "\e[35;40m";
+    case std::experimental::filesystem::file_type::socket:
+        return "\e[32;40m";
+    case std::experimental::filesystem::file_type::unknown:
+        return "\e[34;47m";
     }
     return "";
 }
