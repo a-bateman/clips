@@ -1,6 +1,6 @@
 ***Any and all contributions are appreciated and, given that they follow the guidelines and goals of the clips project, will be accepted.***
 
-In terms of directory structure or data submission, when contributing to the clips project the following guidelines will make the inclusion of your code a less painful experience and assist in reaching our goals a quicker.  The guidelines are as follows (using clips/mvf as an example where examples are provided):
+In terms of directory structure or data submission, when contributing to the clips project the following guidelines will make the inclusion of your code a less painful experience and assist in reaching our goals a quicker.  The guidelines are as follows (using clips/src/mvf as an example where examples are provided):
 
 1. Each program will have it's own directory disignated as the programs name.  When possible a three letter abbreviation should be used.
 
@@ -16,5 +16,9 @@ Program name, the GNU Coreutils program it intends to replace (or the new functi
 6. Any programs submitted that are not posix compliant should, if possible, include a version that is.  If the program must be OS dependent it is expected that this will be included in the details of the submission.
 
 7. Coding style should follow the style found throughout all of the currently submitted programs.  Feel free to copy one of the programs already submitted and use it as a base.
+
+8. Source file directories are expected to be in "clips/src/".  This keeps clips organized and easier to read.
+
+9. Most major changes are made around midnight EST.  You are expected to pull before you make any changes to your code to ensure you are up to date with the repo.
 
 ***If you feel like your submission should have been included and it was not please file an issue with what you committed, why you feel it should have been included and any other details to make your case and the code will be considered for a second time.***
