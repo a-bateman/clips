@@ -1,5 +1,5 @@
 compile:
-	-mkdir ../build
+	-mkdir ../../build
 	clang++ -std=c++17 ./sfa.cpp -lCMD -o ../build/sfa
 
 install: compile

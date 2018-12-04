@@ -1,13 +1,12 @@
-compile:
-	clang++ -std=c++17 ./lfs.cpp
+compile:	
+	-mkdir ../../build
+	g++ -std=c++17 ./lfs.cpp -o ../../build/lfs -lCMD -lstdc++fs 
 
 install: compile
-	cp ./a.out ./lfs
-	-sudo cp ./lfs /usr/local/bin/lfs
+	-sudo cp ../../build/lfs /usr/local/bin/lfs
 
 clean:
-	rm ./a.out
-	rm ./lfs	
+	rm ../../build/lfs	
 
 uninstall:
 	sudo rm /usr/local/bin/lfs
