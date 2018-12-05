@@ -9,9 +9,8 @@
 #include <experimental/filesystem>
 #include <string>
 #include <commander.hpp>
+#include <colorink.hpp>
 #include <exception>
-
-std::string getDatatypeColorCode(const std::experimental::filesystem::directory_entry &entry);
 
 inline bool shouldDisplayHelp(const CMD::commander &args)
 {
@@ -33,15 +32,45 @@ inline bool helpMessage(const CMD::commander &args)
     return false;
 };
 
-inline void inputDirectoryName(std::string &dir)
+
+bool isExecutable(const std::experimental::filesystem::directory_entry &entry)
 {
-    std::cout << "Which directory would you like to print the contents of? ";
-    std::cin >> dir;
+    return ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
+           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
+           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec);
 }
 
 std::string extractName(const std::string name)
 {
     return name.substr(2, name.size());
+}
+
+
+INK::ColorMode getDatatypeColorCode(const std::experimental::filesystem::directory_entry &entry)
+{
+
+    switch (entry.status().type())
+    {
+    case std::experimental::filesystem::file_type::block:
+        return INK::ColorMode(INK::COLOR::GREEN, INK::COLOR::BLACK);
+    case std::experimental::filesystem::file_type::character:
+        return INK::ColorMode(INK::COLOR::BLACK, INK::COLOR::BLUE);
+    case std::experimental::filesystem::file_type::not_found:
+        return INK::ColorMode(INK::COLOR::RED, INK::COLOR::YELLOW);
+    case std::experimental::filesystem::file_type::regular:
+        return INK::ColorMode(INK::COLOR::NONE, INK::COLOR::NONE);
+    case std::experimental::filesystem::file_type::directory:
+        return INK::ColorMode(INK::COLOR::BLACK, INK::COLOR::YELLOW);
+    case std::experimental::filesystem::file_type::symlink:
+        return INK::ColorMode(INK::COLOR::MAGENTA, INK::COLOR::BLUE);
+    case std::experimental::filesystem::file_type::fifo:
+        return INK::ColorMode(INK::COLOR::BLUE, INK::COLOR::WHITE);
+    case std::experimental::filesystem::file_type::socket:
+        return INK::ColorMode(INK::COLOR::GREEN, INK::COLOR::BLACK);
+    case std::experimental::filesystem::file_type::unknown:
+        return INK::ColorMode(INK::COLOR::RED, INK::COLOR::NONE);
+    }
+    return INK::ColorMode(INK::COLOR::WHITE, INK::COLOR::NONE);
 }
 
 inline void printFiles(std::string dir)
@@ -50,12 +79,15 @@ inline void printFiles(std::string dir)
     for (auto filename : FS::directory_iterator(dir))
         try
         {
-            std::cout << getDatatypeColorCode(filename) << extractName(filename.path()) << "\e[0m\n";
+            if (isExecutable (filename))
+                std::cout << INK::underline;
+            std::cout << getDatatypeColorCode(filename) << extractName(filename.path()) << INK::reset << "\n";
         }
         catch (const std::exception &ex)
         {
             std::cout << ex.what() << "\n";
         }
+    std::cout << "\n";
 }
 
 int main(int argc, char **argv)
@@ -75,62 +107,3 @@ int main(int argc, char **argv)
     return 0;
 }
 
-bool isExecutable(const std::experimental::filesystem::directory_entry &entry)
-{
-    return ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
-           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec) ||
-           ((entry.status().permissions() & std::experimental::filesystem::perms::owner_exec) == std::experimental::filesystem::perms::owner_exec);
-}
-
-// The codes for foreground and background colours are:
-
-//          foreground background
-// black        30         40
-// red          31         41
-// green        32         42
-// yellow       33         43
-// blue         34         44
-// magenta      35         45
-// cyan         36         46
-// white        37         47
-
-// Additionally, you can use these:
-
-// reset             0  (everything back to normal)
-// bold/bright       1  (often a brighter shade of the same colour)
-// underline         4
-// inverse           7  (swap foreground and background colours)
-// bold/bright off  21
-// underline off    24
-// inverse off      27
-
-//source: https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
-
-std::string getDatatypeColorCode(const std::experimental::filesystem::directory_entry &entry)
-{
-
-    switch (entry.status().type())
-    {
-    case std::experimental::filesystem::file_type::block:
-        return "\e[30;47m";
-    case std::experimental::filesystem::file_type::character:
-        return "\e[31;47m";
-    case std::experimental::filesystem::file_type::not_found:
-        return "\e[37;41m";
-    case std::experimental::filesystem::file_type::regular:
-        if (isExecutable(entry))
-            return "\e[32;44m";
-        return "\e[0m";
-    case std::experimental::filesystem::file_type::directory:
-        return "\e[4m\e[7m";
-    case std::experimental::filesystem::file_type::symlink:
-        return "\e[4m";
-    case std::experimental::filesystem::file_type::fifo:
-        return "\e[35;40m";
-    case std::experimental::filesystem::file_type::socket:
-        return "\e[32;40m";
-    case std::experimental::filesystem::file_type::unknown:
-        return "\e[34;47m";
-    }
-    return "";
-}
