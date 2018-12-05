@@ -37,3 +37,4 @@ If you have any requests for a specific program to be completed but do not see a
 Both of the following dependencies have to be installed: 
 ..* clang++
 ..* commandEr (https://github.com/Wittmaxi/CommandEr)
+..* colorink https://github.com/Wittmaxi/Colorink
