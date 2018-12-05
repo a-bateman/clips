@@ -31,7 +31,7 @@ If a make file exists in a programs directory, and is labeled as "READY" under C
 
 If you have any requests for a specific program to be completed but do not see a directory for it please submit it as an issue and I will attempt to work on it ASAP.
 
-***Currently all clips are compiled using clang++.***
+***Currently all clips are compiled using clang++.  They may work being compiled under g++ but no guarentees are made to this.***
 
 ## Dependencies
 Both of the following dependencies have to be installed: 
