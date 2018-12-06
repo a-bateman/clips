@@ -38,3 +38,5 @@ Both of the following dependencies have to be installed:
 ..* clang++
 ..* commandEr (https://github.com/Wittmaxi/CommandEr)
 ..* colorink https://github.com/Wittmaxi/Colorink
+
+***Some of the programs contained in clips may use experimental C++ libraries.  They will be thoroughly tested in multiple scenarios before being marked as ready.  That being said experimental libraries may have bugs or change drastically over time.  Any bug found or major change in the library will be noted in announcements and we will test to see if the program is effected.  A new section in files.md will be created with an "X" in the box if it uses an experimental library.***
