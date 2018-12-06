@@ -21,4 +21,6 @@ Program name, the GNU Coreutils program it intends to replace (or the new functi
 
 9. Most major changes are made around midnight EST.  You are expected to pull before you make any changes to your code to ensure you are up to date with the repo.
 
+10. Experimental libraries may be used.  If an experimental library is to be used you MUST state this in your submission.  This will allow for the proper amount of testing before it is deemed ready.  This will also allow those using or working on the program to understand any risks.
+
 ***If you feel like your submission should have been included and it was not please file an issue with what you committed, why you feel it should have been included and any other details to make your case and the code will be considered for a second time.***
