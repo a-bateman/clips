@@ -63,7 +63,7 @@ inline int calc ( int& fnum, int& snum, std::string& oper) {
     }
     else
     {
-        std::cout << oper << " is not a valid mathmatical operator." << std::endl;
+        std::cout << oper << " is not an accepted clc mathmatical operator." << std::endl;
         std::cout << "Accepted mathmatical operators are:" << std::endl;
         std::cout << "Addition: +" << std::endl;
         std::cout << "Subtraction: -" << std::endl;
