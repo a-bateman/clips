@@ -52,9 +52,23 @@ inline int calc ( int& fnum, int& snum, std::string& oper) {
     {
         return fnum/snum;
     }
+    if(oper == "^")
+    {
+        int result = fnum;
+        while(; snum != 0; snum--)
+        {
+            result = result * fnum;
+        }
+        return result;
+    }
     else
     {
-        std::cout << oper << " is not a valid mathmatical operator.";
+        std::cout << oper << " is not a valid mathmatical operator." << std::endl;
+        std::cout << "Accepted mathmatical operators are:" << std::endl;
+        std::cout << "Addition: +" << std::endl;
+        std::cout << "Subtraction: -" << std::endl;
+        std::cout << "Multiplication: *, x, X" << std::endl;
+        std::cout << "Division: /, \, ÷" << std::endl;
     }
 }
 
@@ -73,6 +87,6 @@ int main(int argc, char** argv)
     else
         filf = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
 
-    calc(fnum, snum, oper);
+    cout << "Answer is: " << calc(fnum, snum, oper) << std::endl;
     return 0;
 }
