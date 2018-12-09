@@ -106,7 +106,7 @@ inline void setsmonth(std::string &month, int &year)
 
 inline void getCurrDate(int &day, int &month, int &year)
 {
-    time_t t + time(NULL);
+    time_t t = time(NULL);
     tm* timePtr = localtime(&t);
 
     month = (timePtr->tm_mon)+1;
