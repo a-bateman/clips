@@ -32,12 +32,13 @@ inline bool helpMessage(const CMD::commander &args)
     return false;
 };
 
-inline void displayCal (int& day, int& month, int& year)
+inline void displayCal (int& day, std::string& smonth, int& year)
 {
+    std::cout << day << "/" << smonth << "/" << year << "\n"
 
-}
+};
 
-inline void setMonth (string& smonth, int& imonth)
+inline void setimonth (std::string& smonth, int& imonth)
 {
     if(smonth == "January" || smonth = "january")
         iday = 1;
@@ -65,10 +66,20 @@ inline void setMonth (string& smonth, int& imonth)
         iday = 12;
     else
     {
-        cout << "Invalid month\n";
-        std::exit();
+        std::cout << "Invalid month\n";
+        exit();
     }
-}
+};
+
+inline void setsmonth(std::string &month, int &year)
+{
+
+};
+
+inline void getCurrDate(int &day, int &month, int &year)
+{
+
+};
 
 int main(int argc, char** argv)
 {
@@ -84,7 +95,14 @@ int main(int argc, char** argv)
     else
         filf = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
     if(&smonth != "XXXX")
-        setMonth(smonth, imonth);
+    {
+        setimonth(smonth, imonth);
+    }
+    if(&smonth == "XXXX")
+    {
+        setsmonth(smonth, imonth);
+    }
+    getCurrDate(iday, imonth, iyear);
     displayCal(iday, imonth, iyear);
-    return 0;
+
 }
