@@ -73,20 +73,54 @@ inline void setimonth (std::string& smonth, int& imonth)
 
 inline void setsmonth(std::string &month, int &year)
 {
-
+    if(iday == 1)
+        smonth = "January";
+    if(iday ==2 )
+        smonth = "February";
+    if(iday == 3)
+        smonth = "March";
+    if(iday == 4)
+        smonth = "April";
+    if(iday == 5)
+        smonth = "May";
+    if(iday == 6)
+        smonth = "June";
+    if(iday == 7)
+        smonth = "July";
+    if(iday == 8)
+        smonth = "August";
+    if(iday == 9)
+        smonth = "September";
+    if(iday == 10)
+        smonth = "October";
+    if(iday == 11)
+        smonth = "November";
+    if(iday == 12)
+        smonth = "December";
+    else
+    {
+        std::cout << "Invalid month\n";
+        exit();
+    }
 };
 
 inline void getCurrDate(int &day, int &month, int &year)
 {
+    time_t t + time(NULL);
+    tm* timePtr = localtime(&t);
 
+    month = (timePtr->tm_mon)+1;
+    day = (timePtr->tm_mday);
+    year = (timePtr->tm_year)+1900;
 };
 
 int main(int argc, char** argv)
 {
     CMD::commander args (argc-1, argv + 1);
     std::string *smonth = "XXXX";
-    int *iday = 0, *imonth = 0, *iyear = 0;
+    int *iday = 0, *imonth = 0, *iyear = 0, hour, minute, second;
 
+    getCurrDate(iday, imonth, iyear);
     if(helpMessage(args))
         return 0;
 
@@ -94,6 +128,7 @@ int main(int argc, char** argv)
         inputExpression();
     else
         filf = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
+
     if(&smonth != "XXXX")
     {
         setimonth(smonth, imonth);
@@ -102,7 +137,5 @@ int main(int argc, char** argv)
     {
         setsmonth(smonth, imonth);
     }
-    getCurrDate(iday, imonth, iyear);
-    displayCal(iday, imonth, iyear);
-
+    displayCal(iday, smonth, iyear);
 }
