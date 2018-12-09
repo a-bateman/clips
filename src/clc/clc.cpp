@@ -63,12 +63,13 @@ inline int calc ( int& fnum, int& snum, std::string& oper) {
     }
     else
     {
-        std::cout << oper << " is not an accepted clc mathmatical operator." << std::endl;
-        std::cout << "Accepted mathmatical operators are:" << std::endl;
-        std::cout << "Addition: +" << std::endl;
-        std::cout << "Subtraction: -" << std::endl;
-        std::cout << "Multiplication: *, x, X" << std::endl;
-        std::cout << "Division: /, \, ÷" << std::endl;
+        std::cout << oper << " is not an accepted clc mathmatical operator. \n"
+        << "Accepted mathmatical operators are:"
+        << "Addition: + \n"
+        << "Subtraction: -\n"
+        << "Multiplication: *, x, X\n"
+        << "Division: /, \\, ÷\n"
+        << "Power of: ^\n";
     }
 }
 
