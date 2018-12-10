@@ -35,6 +35,8 @@ inline bool helpMessage(const CMD::commander &args)
 inline void displayCal (int& day, std::string& smonth, int& year)
 {
     std::cout << day << "/" << smonth << "/" << year << "\n"
+    << "Mon | Tue | Wed | Thu | Fri | Sat | Sun\n"
+    << ""
 
 };
 
@@ -113,6 +115,8 @@ inline void getCurrDate(int &day, int &month, int &year)
     day = (timePtr->tm_mday);
     year = (timePtr->tm_year)+1900;
 };
+
+
 
 int main(int argc, char** argv)
 {
