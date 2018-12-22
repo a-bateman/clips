@@ -2,6 +2,9 @@
 
 This file will contain any major announcements and changes effecting clips in a reverse chronological order (newest at the top, oldest at the bottom).  Each new announcement will be mirrored in the pinned message on the telegram group for the project (https://t.me/joinchat/KG5lhAvsbtt7uQfOGkBr9g) and discussions/debates of the changes are expected to be held there.
 
+# 12-22-18
+A lot of work is going on in the background at the moment.  I apologize for not putting out any new clips at the moment.  Currently we are still working on making things POSIX compliant and gnu coreutils compatible.  Updates will be pushed to git once they are in place.  With the Holiday season things are progressing a little slower than usual but once we get through it clips will be running at full speed again.  Hope you all have a happy holiday!
+
 # 12-15-18
 At this point in time we are working on getting the clips that are already out into a READY along with releasing new clips.  We are also working on making clips POSIX compliant and will focus on releasing all future clips with this goal in mind.  If you're working on the project please make sure to push and pull routinely to get the most recent updates.  Thank you to everyone who has shown interest in clips or have just kept us busy chatting on our telegram group!  We look forward to working with and hearing from you all.
 
