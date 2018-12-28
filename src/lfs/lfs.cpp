@@ -2,7 +2,7 @@
 //List FileS for CLI.
 //Written by: Andrew B.
 //Originally written: 11-28-18
-//Licensed under the LOLicense. It is expected that you have read the LOL.txt file included with this source code before modifying, compiling or distributing it.
+//Licensed under the BSD 3 clause license. It is expected that you have read the license file included with this source code before modifying, compiling or distributing it.
 
 #include <string>
 #include <iostream>
@@ -106,4 +106,3 @@ int main(int argc, char **argv)
     printFiles(dir);
     return 0;
 }
-
