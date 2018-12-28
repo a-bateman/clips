@@ -12,7 +12,7 @@
 |smn         |        yes                  |clips/src/smn|Repeats a phrase until killed|WIP (See this files readme.md for details)|
 |clc         |        New feature          |clips/src/clc|Performs simple calculations|WIP (See this files readme.md for details)|
 |cal         |        New feature          |clips/src/cal|Displays a calendar|Very early stages WIP (See this files readme.md for details)|
-|dat         |        date                 |clips/src/dat|Displays the current date and time|READY|
+|dat         |        date                 |clips/src/dat|Displays the current date and time|WIP (See this files readme.md for details)|
 
 ***Below is a list of the clips that use experimental featues:***
 1. lfs
