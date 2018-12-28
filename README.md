@@ -8,7 +8,7 @@ Telegram for clips:  https://t.me/joinchat/KG5lhAvsbtt7uQfOGkBr9g
 ***A current list of the programs, their status and what they are intended to replace can be found in files.md.***
 
 ## Goals
-The end goal of clips is to provide users with a MIT-Like licensed group of CLI utilities in the vein of GNU Coreutils.  It will also expand upon the GNU set of utilities to provide additional functionality.  The source code, written in c/c++, should be easily understood, conform as closely as possible to c++ standards and hold close to the Unix philosphy.  Each program should do one job and do it well with as little overhead as possible.
+The end goal of clips is to provide users with a BSD 3 clause licensed group of CLI utilities in the vein of GNU Coreutils.  It will also expand upon the GNU set of utilities to provide additional functionality.  The source code, written in c/c++, should be easily understood, conform as closely as possible to c++ standards and hold close to the Unix philosphy.  Each program should do one job and do it well with as little overhead as possible.
 
 ## License
 clips are now released under the BSD 3 clause license.  See "license" for details.
