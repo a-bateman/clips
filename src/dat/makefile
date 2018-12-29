@@ -1,5 +1,5 @@
 compile:
-	clang++ -std=c++17 ./dat.cpp
+	clang++ -std=c++17 ./dat.cpp -lCMD
 
 install: compile
 	cp ./a.out ./dat

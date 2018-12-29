@@ -19,7 +19,7 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args)) {
         std::cout << "\n\nclc v1 Info:\n"
-                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                   << "clc is designed to complete simple calculations.\n"
                   << "You may call clc on it's own and input mathmatical expression to be calculated at run time.\n"
                   << "Yoy may also call clc with the mathmatical expression to be calculated as arguments with a space between each part of the expression.\n"

@@ -12,13 +12,13 @@
 
 inline void help()
 {
-    std::cout << std::endl << std::endl << "mvf v1 Info:" << std::endl;
-    std::cout << std::endl << std::endl << "Released under LOL License.  Please see the lol-mvf.txt file for details." << std::endl;
-    std::cout << "mvf is designed to move a file to a new location.  It will then remove the origional file." << std::endl;
-    std::cout << "You may call mvf with both the file to be moved and then the final location of the file as arguments." << std::endl;
-    std::cout << "You may call mvf on it's own and then input the file to move as well as the final location of the file." << std::endl;
-    std::cout << "EXAMPLE: ./pfc ./file-to-print ./final-file-location" << std::endl;
-    std::cout << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root." << std::endl << std::endl;
+    std::cout << n"\nmvf v1 Info:\n"
+    << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
+    << "mvf is designed to move a file to a new location.  It will then remove the origional file.\n"
+    << "You may call mvf with both the file to be moved and then the final location of the file as arguments.\n"
+    << "You may call mvf on it's own and then input the file to move as well as the final location of the file.\n"
+    << "EXAMPLE: ./pfc ./file-to-print ./final-file-location\n"
+    << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
 };
 
 inline void getFiles(char& infil, std::string& filt)

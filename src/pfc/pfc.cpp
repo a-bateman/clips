@@ -11,12 +11,12 @@
 
 void help()
 {
-    std::cout << std::endl << std::endl << "pfc v1 Info:" << std::endl;
-    std::cout << std::endl << std::endl << "Released under LOL License.  Please see the lol-pfc.txt file for details." << std::endl;
-    std::cout << "pfc is designed to print the contents of a file to the screen." << std::endl;
-    std::cout << "You may call pfc on it's own and input the file to print as an arguement." << std::endl;
-    std::cout << "EXAMPLE: ./pfc ./file-to-print" << std::endl;
-    std::cout << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root." << std::endl << std::endl;
+    std::cout << "\n\npfc v1 Info: \n"
+    << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
+    << "pfc is designed to print the contents of a file to the screen." << std::endl;
+    << "You may call pfc on it's own and input the file to print as an arguement.\n";
+    << "EXAMPLE: ./pfc ./file-to-print\n";
+    << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n\n";
 };
 
 int main(int argc, char** argv)

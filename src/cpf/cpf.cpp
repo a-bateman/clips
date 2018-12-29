@@ -19,7 +19,7 @@ inline void helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
-                << "\nReleased under LOL License.  Please see the lol-cpf.txt file for details.\n\n\n"
+                << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n"
                 << "cpf is designed to copy a file to a new location leaving the origional file intact.\n"
                 << "You may call cpf with both the file to be copied and then the final location of the file as arguments.\n"
                 << "You may call cpf on it's own and input the file to be copied and a location to copy it to.\n"

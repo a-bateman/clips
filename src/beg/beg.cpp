@@ -20,7 +20,7 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args)) {
         std::cout << "\n\nbeg v1 Info:\n"
-                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                   << "beg is designed to print the first 10 lines of a file to the screen.\n"
                   << "You may call beg on it's own and input the file to print as an arguement.\n"
                   << "EXAMPLE: ./beg ./file-to-print\n"
@@ -38,7 +38,7 @@ inline void inputFileName (std::string& filf) {
 inline std::ifstream openFile (const std::string& filf) {
     std::ifstream rofil;
     rofil.open(filf);
-    if (!rofil) { 
+    if (!rofil) {
         std::cerr << "Cannot open file " << filf;
         throw;
     }
@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 
     if(helpMessage(args))
         return 0;
-    
+
     if(args.getFlagCount() < 1)
         inputFileName(filf);
     else

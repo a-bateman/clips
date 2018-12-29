@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <string>
-#include <commander.hpp>
+#include "/usr/local/include/commander.hpp"
 #include <cmath>
 #include <ctime>
 #include <iostream>
@@ -21,22 +21,23 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args)) {
         std::cout << "\n\ndat v1 Info:\n"
-                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n"
                   << "dat is designed to print the current date and time to the screen.\n"
                   << "You call dat on it's own to display the current date and time.\n"
                   << "CAUTION: Just as with any action on a computer it is important that you THINK BEFORE YOU TYPE. Especially if running as root.\n";
         return true;
     }
     return false;
-};
+}
 
-inline void displayDat(int &day, std::string &smonth, int &year, int &minute, int &hour, int &seconds)
+inline void displayDat(int day, std::string smonth, int year)
 {
-    std::cout << smonth << " " << day << ", " << year << "  " << hour << ":" << minute << ":" << seconds << "\n";
-};
+    std::cout << smonth << " " << day << ", " << year << "\n";
+}
 
-inline void setsmonth(std::string &smonth, int &imonth)
+inline std::string setsmonth(int imonth)
 {
+    std::string smonth;
     if(imonth == 1)
         smonth = "January";
     if(imonth ==2 )
@@ -61,7 +62,9 @@ inline void setsmonth(std::string &smonth, int &imonth)
         smonth = "November";
     if(imonth == 12)
         smonth = "December";
-};
+
+    return smonth;
+}
 
 inline void getCurrDat(int &day, int &month, int &year, int &hour, int &minute, int &second)
 {
@@ -74,28 +77,24 @@ inline void getCurrDat(int &day, int &month, int &year, int &hour, int &minute, 
     hour = (timePtr->tm_hour);
     minute = (timePtr->tm_min);
     second = (timePtr->tm_sec);
-};
+}
 
 
 int main(int argc, char** argv)
 {
     CMD::commander args (argc-1, argv + 1);
-    int *iday, *imonth, *iyear, *hour, *minute, *second;
-    std::string *smonth = nullptr;
+    int iday, imonth, iyear, hour, minute, second;
+    std::string smonth = "XXXX";
 
     getCurrDat(iday, imonth, iyear, hour, minute, second);
-    if(smonth == nullptr)
+    if(smonth == "XXXX")
     {
-        setsmonth(smonth, imonth);
+        smonth = setsmonth(imonth);
     }
 
     if(helpMessage(args))
         return 0;
 
-    if(args.getFlagCount() < 1)
-        inputExpression();
-    else
-        filf = args.getAllFlagsUnlike(std::regex ("-\\w*"))[0];
     displayDat(iday, smonth, iyear);
     return 0;
 }

@@ -19,7 +19,7 @@ inline void helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
-                << "\nReleased under LOL License.  Please see the lol-cpf.txt file for details.\n\n\n"
+                << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                 << "cmp is designed to compare two files.\n"
                 << "You may call cmp with both the files to be compared as arguments.\n"
                 << "You may call cmp on it's own and input the files to be compared.\n"

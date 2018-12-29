@@ -22,7 +22,7 @@ inline bool helpMessage(const CMD::commander &args)
     if (shouldDisplayHelp(args))
     {
         std::cout << "\n\nlfs v1 Info:\n"
-                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                   << "lfs is designed to list all of the files in a specific directory.\n"
                   << "You may call lfs on it's own and input the file to print as an arguement.\n"
                   << "EXAMPLE: ./lfs ./directory-to-print/\n"

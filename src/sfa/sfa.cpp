@@ -24,7 +24,7 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
     std::cout << "\n\nsfa v1 Info:\n"
-              << "\n\nPlanned to be released out of house with the name SFA (Simple File Appender) under LOL License\n"
+              << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
               << "***Highly Experimental: Not For Production Use!***\n"
               << "sfa is designed to append an unlimited number of files into a single specified file.\n"
               << "You may pipe input from either a file or another program.  Expected format is as follows: \n"

@@ -17,7 +17,7 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args))
         std::cout << "\n\t\t\tcpf v1 Info: \n"
-                << "\nReleased under LOL License.  Please see the lol.txt file for details.\n\n\n"
+                << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                 << "smn is designed to repeat a phrase until killed using ctl-c.\n"
                 << "You may call smn with the phrase to be repeated as arguments.\n"
                 << "You may call smn on it's own and input the phrase to be repeated during runtime.\n"

@@ -21,7 +21,7 @@ inline bool helpMessage(const CMD::commander &args)
 {
     if (shouldDisplayHelp(args)) {
         std::cout << "\n\ncal v1 Info:\n"
-                  << "\nReleased under LOL License.  Please see the lol.txt file for details.\n"
+                  << "\nReleased under BSD 3 clause license.  Please see the license file for details.\n\n\n"
                   << "cal is designed to print a simple calendar to the screen.\n"
                   << "You may call cal on it's own to display a calendar of the current month.\n"
                   << "Yoy may also call cal with a month and year to display the calendar of that month for that specific year.\n"
